@@ -420,6 +420,8 @@ $ git commit -m"feat: added new functionality"
  create mode 100644 test1.md
 
 user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+
+#end of part two
 $
 
 ```
