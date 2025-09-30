@@ -423,6 +423,211 @@ user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
 
 #end of part two
 # part two
+
+
+
+
+## PART Three Git exercises
 $
 
 ```Change in main
+# part three in git exercise
+```bash
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git status
+On branch dev
+nothing to commit, working tree clean
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$  echo "Temporary change" >> temp.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git stash
+No local changes to save
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git stash list 
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git stash pop
+No stash entries found.
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ echo "Change in main" >> README.md
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git commit -m "Update README in dev"
+[dev 26927cc] Update README in dev
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git che
+checkout      cherry        cherry-pick   
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git che
+checkout      cherry        cherry-pick   
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout ft/new-feature
+error: pathspec 'ft/new-feature' did not match any file(s) known to git
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout dev 
+Already on 'dev'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ echo "Temporary change" >> temp.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add temp.txt
+warning: in the working copy of 'temp.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git stash 
+Saved working directory and index state WIP on dev: 26927cc Update README in dev
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git stash pop
+On branch dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   temp.txt
+
+Dropped refs/stash@{0} (df3026259051a30ebc0cf1696d79b234a761783c)
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ echo "Change from dev" >> readme.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add readme.txt
+warning: in the working copy of 'readme.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git commit -m "Update readme from dev"
+[dev 7f119e5] Update readme from dev
+ 2 files changed, 3 insertions(+)
+ create mode 100644 temp.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout -b ft/conflict-branch
+Switched to a new branch 'ft/conflict-branch'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/conflict-branch)
+$ echo "Change from feature branch" >> readme.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/conflict-branch)
+$ git add readme.txt 
+warning: in the working copy of 'readme.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/conflict-branch)
+$ git commit -m "Update readme from feature branch"
+[ft/conflict-branch eda04f3] Update readme from feature branch
+ 1 file changed, 1 insertion(+)
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/conflict-branch)
+$ git checkout dev 
+Switched to branch 'dev'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git merge ft/conflict-branch
+Updating 7f119e5..eda04f3
+Fast-forward
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add readme.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git commit -m "Resolved merge conflict in readme"
+On branch dev
+nothing to commit, working tree clean
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout HEAD~2
+Note: switching to 'HEAD~2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental   
+changes and commit them, and you can discard any commits you make in this  
+state without impacting any branches by switching back to a branch.        
+
+If you want to create a new branch to retain commits you create, you may   
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 26927cc Update README in dev
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 ((26927cc...))
+$ git checkout dev  
+Previous HEAD position was 26927cc Update README in dev
+Switched to branch 'dev'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ echo "/tmp/" >> .gitignore
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add .gitignore
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git commit -m "Add .gitignore to exclude tmp files"
+[dev a5c7f9b] Add .gitignore to exclude tmp files
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git tag v1.0
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git push origin v1.0
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 1.24 KiB | 422.00 KiB/s, done.
+Total 13 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 1 local object.       
+To https://github.com/elie-iradukunda/Gitexercises-2.git
+ * [new tag]         v1.0 -> v1.0
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git tag
+v1.0
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was a5c7f9b)
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git push origin :refs/tags/v1.0
+To https://github.com/elie-iradukunda/Gitexercises-2.git
+ - [deleted]         v1.0
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git push origin dev 
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 1.24 KiB | 422.00 KiB/s, done.
+Total 13 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 1 local object.       
+To https://github.com/elie-iradukunda/Gitexercises-2.git
+   1734e5d..a5c7f9b  dev -> dev
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$
+```
