@@ -228,4 +228,198 @@ To https://github.com/elie-iradukunda/Gitexercises-2.git
 user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
 $
 
+
+
+#part two commands
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-feature)
+$ echo "Core functionality for new feature" > feature.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-feature)
+$ git add feature.txt
+warning: in the working copy of 'feature.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-feature)
+$ git commit -m "Implemented core functionality for new feature"
+[ft/new-feature d684934] Implemented core functionality for new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-feature)
+$ git checkout dev 
+Switched to branch 'dev'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ echo "Project introduction" > readme.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add readme.txt
+warning: in the working copy of 'readme.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git commit -m "Updated project readme"
+[dev 121f81f] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git push -u origin ft/new-feature
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 330 bytes | 330.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.       
+remote:
+remote: Create a pull request for 'ft/new-feature' on GitHub by visiting:  
+remote:      https://github.com/elie-iradukunda/Gitexercises-2/pull/new/ft/new-feature
+remote:
+To https://github.com/elie-iradukunda/Gitexercises-2.git
+ * [new branch]      ft/new-feature -> ft/new-feature
+branch 'ft/new-feature' set up to track 'origin/ft/new-feature'.
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git branch -d ft/new-feature
+warning: deleting branch 'ft/new-feature' that has been merged to
+         'refs/remotes/origin/ft/new-feature', but not yet merged to HEAD  
+Deleted branch ft/new-feature (was d684934).
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git push origin --delete ft/new-feature
+To https://github.com/elie-iradukunda/Gitexercises-2.git
+ - [deleted]         ft/new-feature
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout -b ft/new-branch-from-commit HEAD~2
+Switched to a new branch 'ft/new-branch-from-commit'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-branch-from-commit)
+$ git checkout dev 
+Switched to branch 'dev'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git merge ft/new-branch-from-commit
+Already up to date.
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-branch-from-commit)
+$ git rebase dev
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.     
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/new-branch-from-commit)
+$ git branch -m ft/new-branch-from-commit ft/improved-branch-name
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git log --oneline --graph
+* 121f81f (HEAD -> ft/improved-branch-name, dev) Updated project readme
+* 7dbbe06 (origin/dev) adding part one commands
+* 69b02eb feat: Implemented test 5
+* 09200d9 chore: Create third and fourth files (added missing test4.md)    
+* 248f285 chore: Create initial file
+* 8e6fe2d (origin/main, origin/HEAD, main) Initial commit
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git checkout 69b02eb
+Note: switching to '69b02eb'.
+
+You are in 'detached HEAD' state. You can look around, make experimental   
+changes and commit them, and you can discard any commits you make in this  
+state without impacting any branches by switching back to a branch.        
+
+If you want to create a new branch to retain commits you create, you may   
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 69b02eb feat: Implemented test 5
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 ((69b02eb...))
+$ git status
+HEAD detached at 69b02eb
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test1.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 ((69b02eb...))
+$ git checkout -b ft/experimental-changes
+Switched to a new branch 'ft/experimental-changes'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/experimental-changes)
+$ git checkout ft/improved-branch-name
+Switched to branch 'ft/improved-branch-name'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ echo "Some experimental changes" > experiment.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git add experiment.txt
+warning: in the working copy of 'experiment.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git commit -m "Experiment in detached HEAD"
+[ft/improved-branch-name db65f26] Experiment in detached HEAD
+ 1 file changed, 1 insertion(+)
+ create mode 100644 experiment.txt
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git checkout -b ft/experimental-changes
+fatal: a branch named 'ft/experimental-changes' already exists
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git checkout  ft/experimental-changes
+Switched to branch 'ft/experimental-changes'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/experimental-changes)
+$ git switch ft/improved-branch-name
+Switched to branch 'ft/improved-branch-name'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git push -u origin ft/improved-branch-name
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (17/17), 3.20 KiB | 468.00 KiB/s, done.
+Total 17 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), done.
+remote:
+remote: Create a pull request for 'ft/improved-branch-name' on GitHub by visiting:
+remote:      https://github.com/elie-iradukunda/Gitexercises-2/pull/new/ft/improved-branch-name
+remote:
+To https://github.com/elie-iradukunda/Gitexercises-2.git
+ * [new branch]      ft/improved-branch-name -> ft/improved-branch-name    
+branch 'ft/improved-branch-name' set up to track 'origin/ft/improved-branch-name'.
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (ft/improved-branch-name)
+$ git checkout dev 
+Switched to branch 'dev'
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git add .
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$ git commit -m"feat: added new functionality"
+[dev e78faf9] feat: added new functionality
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.md
+
+user@LAPTOP-V9PT987N MINGW64 ~/Desktop/githubexercises/Gitexercises-2 (dev)
+$
+
 ```
